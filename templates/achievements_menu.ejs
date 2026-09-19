@@ -1,0 +1,18 @@
+<% for (let i=1; i<bookCount+1; i++) { %>
+    <div class="response">
+        <button
+            data-icon="book"
+            hx-get="/achievements/book/<%= i %>"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            <%= ejs.render(achievementsMenuBookTemplate,{"num":i}) %>
+        </button>
+    </div>
+<% } %>
+<div style="display:none">
+    <h2 class="header-title" id="header" hx-swap-oob="true">
+        <%= achievementsMenuHeaderText %>
+    </h2>
+</div>

@@ -1,0 +1,65 @@
+.content {
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 2.5em;
+}
+
+@media (min-width: 800px) {
+    .content {
+        padding-top: 1em;
+        padding-left: 3em;
+        padding-right: 3em;
+        padding-bottom: 2.5em;
+    }
+}
+
+
+.response {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.response > button,
+.response > select {
+    margin-bottom: 2em;
+    padding: 0.5em;
+    width: calc(80vw);
+    font-size: 1rem;
+
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-color: var(--button-border-color);
+
+    cursor: pointer;
+}
+
+.response > select {
+    text-align-last:center;
+}
+
+@media (min-width: 800px) {
+    .response > button,
+    .response > select {
+        width: calc(30vw);
+    }
+}
+
+button {
+    font-family: Arial, sans-serif;
+}
+
+button, select, input, textarea {
+    font: inherit
+}
+
+
+.stat_success {
+    color: var(--green-color)
+}
+
+.stat_fail {
+    color: var(--red-color)
+}

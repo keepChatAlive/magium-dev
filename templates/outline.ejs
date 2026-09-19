@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Magium</title>
+    <script>
+        (function () {
+            var saved = null;
+            try { saved = localStorage.getItem('magium.preference.ui-style'); } catch (error) {}
+            document.documentElement.dataset.uiStyle = saved === 'classic' || saved === 'square' ? saved : 'square';
+        })();
+    </script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/utils.css">
+    <link rel="stylesheet" href="/styles/stats.css">
+    <link rel="stylesheet" href="/styles/saves.css">
+    <link rel="stylesheet" href="/styles/achievements.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/about.css">
+    <link rel="stylesheet" href="/styles/settings.css">
+    <link rel="stylesheet" href="/styles/square.css">
+    <link rel="stylesheet" href="/styles/presentation.css">
+    <link rel="icon" href="/images/magium.ico" type="image/x-icon">
+    <script src="/scripts/htmx.min.js"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <script src="/scripts/lz-string.js"></script>
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/saves.js"></script>
+    <script src="/scripts/stats.js"></script>
+    <script src="/scripts/theme.js"></script>
+    <script src="/scripts/reading-enhancements.js"></script>
+    <script src="/scripts/presentation-enhancements.js"></script>
+    <script>
+        // Loads on start
+        document.addEventListener("DOMContentLoaded", function() {
+            handleThemeChange(localStorage.getItem("theme"))
+
+            let fontSize = getCookie("fontsize");
+            if (fontSize) {
+                document.documentElement.style.setProperty("font-size",fontSize);
+            }
+        })
+    </script>
+  </head>
+  <body>
+    <main id="main">
+        <div class="header">
+          <button class="header-left" data-icon="menu" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineMenuButtonText %></button>
+          <h2 class="header-title" id="header"><%- header %></h2>
+          <button class="header-right" data-icon="on-device-training" hx-post="/stats" hx-ext="submitcurrentstate" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineStatsButtonText %></button>
+        </div>
+        <% if ((locals.path.includes("/saves")) || (locals.path.includes("/local_saves"))) { %>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage"></div>
+        <% } else if (locals.path === "/" || locals.path === "/stats" || (locals.path.includes("/achievements") && locals.path.includes("chapter"))) { %>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitcurrentstate"></div>
+        <% } else if (locals.path === "/settings") { %>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submittheme"></div>
+        <% } else { %>
+            <div id="content" class="content" hx-get hx-trigger="load"></div>
+        <% } %>
+        <div class="footer">
+          <p>MagiumJS v1.0.0</p>
+        </div>
+    </main>
+  </body>
+</html>

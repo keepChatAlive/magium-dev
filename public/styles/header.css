@@ -1,0 +1,50 @@
+.header {
+    /* Ensure middle element is centered */
+    display: grid;
+    grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(max-content, 1fr);
+
+    /* Add the required colors */
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+
+    /* Fix */
+    top: 0;
+    width: 100%;
+
+    container-type: inline-size;
+}
+
+.header > button {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--header-text-color);
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.header > * {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.header-left {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.header-right {
+    text-align: right;
+    font-size: 1rem;
+}
+
+.header-title {
+    font-size: 1rem;
+    text-align: center;
+}
+
+@container (width > 600px) {
+    .header-title {
+        font-size: 1.5rem;
+    }
+}

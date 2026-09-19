@@ -1,0 +1,18 @@
+<% achievements.forEach(function(achievement) {
+    const unlocked = (locals[achievement.variable] || 0) != "0"; %>
+    <div class="achievement-box">
+        <div class="achievement-columns">
+            <img class="achievement-icon-classic" src="<% if (unlocked) { %> /images/achievement_ok.png <% } else { %> /images/achievement_no.png <% } %>" width="30" height="30" />
+            <span class="achievement-symbol" data-icon="<%= unlocked ? 'award' : 'locked' %>" aria-hidden="true"></span>
+            <div class="achievement-text">
+                <div class="achievement-title"><%= achievement.title %></div>
+                <div class="achievement-caption"><%= achievement.caption %></div>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+<div style="display:none">
+    <h2 class="header-title" id="header" hx-swap-oob="true">
+        <%= achievementsMenuHeaderText %>
+    </h2>
+</div>

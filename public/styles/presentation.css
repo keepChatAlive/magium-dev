@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "Magium EB Garamond";
+  src: url("../fonts/EBGaramond-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Magium EB Garamond";
+  src: url("../fonts/EBGaramond-Italic-Variable.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Magium Noto Serif SC";
+  src: url("../fonts/NotoSerifSC-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Magium Kalam";
+  src: url("../fonts/Kalam-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Magium LXGW WenKai";
+  src: url("../fonts/LXGWWenKai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+html.reading-mode-book.contextual-typography-enabled:lang(en) .story-view .story-paragraph {
+  font-family: "Magium EB Garamond", Georgia, serif;
+  font-weight: 400;
+}
+html.reading-mode-book.contextual-typography-enabled:lang(zh-CN) .story-view .story-paragraph {
+  font-family: "Magium Noto Serif SC", "Songti SC", STSong, serif;
+  font-weight: 400;
+}
+html.reading-mode-book.contextual-typography-enabled:lang(en) .document-style-handwritten {
+  font-family: "Magium Kalam", cursive;
+  font-size: 1.04em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+html.reading-mode-book.contextual-typography-enabled:lang(zh-CN) .document-style-handwritten {
+  font-family: "Magium LXGW WenKai", KaiTi, serif;
+  font-size: 1.02em;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+html.reading-mode-book.contextual-typography-enabled .document-style-inscription {
+  letter-spacing: 0.08em;
+  font-variant-caps: small-caps;
+}
+html.reading-mode-book.contextual-typography-enabled:lang(zh-CN) .document-style-inscription {
+  font-variant-caps: normal;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+html.reading-mode-book.contextual-typography-enabled .document-style-formal-document.document-style-full,
+html.reading-mode-book.contextual-typography-enabled .document-style-full[data-document-role="formal-document"] {
+  border-inline-start: 1px solid currentColor;
+  padding-inline: 1em;
+  text-indent: 0;
+}
+html.reading-mode-book.contextual-typography-enabled .document-style-verse.document-style-full,
+html.reading-mode-book.contextual-typography-enabled .document-style-full[data-document-role="verse"],
+html.reading-mode-book.contextual-typography-enabled .document-style-inscription.document-style-full,
+html.reading-mode-book.contextual-typography-enabled .document-style-full[data-document-role="inscription"] {
+  text-align: center;
+  text-indent: 0;
+}
+html.reading-mode-book.contextual-typography-enabled:lang(en) .document-style-verse {
+  font-family: "Magium EB Garamond", Georgia, serif;
+  font-style: italic;
+}
+html.reading-mode-book.contextual-typography-enabled:lang(zh-CN) .document-style-verse {
+  font-family: "Magium Noto Serif SC", "Songti SC", STSong, serif;
+  font-style: normal;
+}
+
+html.animation-effects-enabled .magium-word-reveal {
+  opacity: 0;
+  animation: magium-word-appear 140ms linear forwards;
+  animation-delay: var(--magium-word-delay, 0ms);
+}
+@keyframes magium-word-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.animation-effects-enabled .magium-word-reveal {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,295 @@
+:root {
+    color-scheme: light dark;
+    --background-color: light-dark(#ffffff,#000000);
+    --text-color: light-dark(#000000,#ffffff);
+
+    --header-background-color: light-dark(#000000,#CBCBCB);
+    --header-text-color: light-dark(#ffffff,#000000);
+
+    --button-color: light-dark(#535353,#535353);
+    --button-color-red: light-dark(red,red);
+    --button-text-color: light-dark(#ffffff,#ffffff);
+    --button-border-color: transparent;
+
+    --saves-text-color: light-dark(#a52a2a,#a52a2a);
+
+    --achievement-background-color: light-dark(#f3f3f3,#252525);
+    --achievement-text-color: light-dark(#000000,#ffffff);
+    --achievement-title-color: light-dark(#963a00,#ff9a62);
+
+    --slider-color-1: light-dark(#606060,#606060);
+    --slider-color-2: light-dark(#535353,#535353);
+    --slider-color-3: light-dark(#464646,#464646);
+
+    --green-color: light-dark(#008000,#008000);
+    --blue-color: light-dark(#0000ff,#0000ff);
+    --red-color: light-dark(#a52a2a,#a52a2a);
+}
+
+body {
+    /* Set the background color */
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Keep narrative text selectable in browsers and the Android WebView. */
+#content {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+#content button,
+#content select,
+#content option,
+#content input,
+#content textarea {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* 
+The following color scheme is taken from the Catppuccin color palette
+Copyright (c) 2021 Catppuccin (MIT License)
+*/
+.theme-catppuccin {
+    color-scheme: light dark;
+    --background-color: light-dark(#e6e9ef,#181825);
+    --text-color: light-dark(#4c4f69,#cdd6f4);
+
+    --header-background-color: light-dark(#eff1f5,#1e1e2e);
+    --header-text-color: light-dark(#4c4f69,#cdd6f4);
+
+    --button-color: light-dark(#eff1f5,#11111b);
+    --button-color-red: light-dark(#e64553,#d20f39);
+    --button-text-color: light-dark(#4c4f69,#cdd6f4);
+    --button-border-color: transparent;
+
+    --saves-text-color: light-dark(#e64553,#d20f39);
+
+    --achievement-background-color: light-dark(#eff1f5,#1e1e2e);
+    --achievement-text-color: light-dark(#4c4f69,#cdd6f4);
+    --achievement-title-color: light-dark(#8b3a00,#fab387);
+
+    --slider-color-1: light-dark(#bcc0cc,#45475a);
+    --slider-color-2: light-dark(#ccd0da,#313244);
+    --slider-color-3: light-dark(#eff1f5,#1e1e2e);
+
+    --green-color: light-dark(#40a02b, #40a02b);
+    --blue-color: light-dark(#1e66f5, #1e66f5);
+    --red-color: light-dark(#d20f39,#d20f39);
+}
+
+/* The Android shell supplies these semantic roles from the system wallpaper.
+   The static build uses the bundled Material 3 fallback palette. */
+:root[data-theme="material-you"] {
+    color-scheme: light dark;
+    --background-color: var(--material-surface, light-dark(#fffbfe,#141218));
+    --text-color: var(--material-on-surface, light-dark(#1d1b20,#e6e0e9));
+    --header-background-color: var(--material-surface-container, light-dark(#f3edf7,#211f26));
+    --header-text-color: var(--material-on-surface, light-dark(#1d1b20,#e6e0e9));
+    --button-color: var(--material-primary-container, light-dark(#eaddff,#4f378b));
+    --button-text-color: var(--material-on-primary-container, light-dark(#21005d,#eaddff));
+    --button-color-red: var(--material-error-container, light-dark(#f9dedc,#93000a));
+    --button-text-color-red: var(--material-on-error-container, light-dark(#410e0b,#ffdad6));
+    --button-border-color: var(--material-outline, light-dark(#79747e,#938f99));
+    --saves-text-color: var(--material-primary, light-dark(#6750a4,#d0bcff));
+    --achievement-background-color: var(--material-secondary-container, light-dark(#e8def8,#4a4458));
+    --achievement-text-color: var(--material-on-secondary-container, light-dark(#1d192b,#e8def8));
+    --achievement-title-color: var(--material-primary, light-dark(#6750a4,#d0bcff));
+    --slider-color-1: var(--material-primary, light-dark(#6750a4,#d0bcff));
+    --slider-color-2: var(--material-primary-container, light-dark(#eaddff,#4f378b));
+    --slider-color-3: var(--material-surface-container-high, light-dark(#ece6f0,#2b2930));
+    --green-color: light-dark(#386a20,#9cd67d);
+    --blue-color: var(--material-primary, light-dark(#6750a4,#d0bcff));
+    --red-color: var(--material-on-error-container, light-dark(#410e0b,#ffdad6));
+}
+
+/* Character colours are attached only to exact ranges from the static reading
+   metadata. Paired tones keep the labels legible in every bundled light and
+   dark palette. */
+[data-speaker-color="azure"] { --speaker-color: light-dark(#326e98, #54b8ff); }
+[data-speaker-color="amber"] { --speaker-color: light-dark(#86631b, #ffbd33); }
+[data-speaker-color="magenta"] { --speaker-color: light-dark(#b92898, #ff37d3); }
+[data-speaker-color="orange"] { --speaker-color: light-dark(#ad4c1c, #ff6f29); }
+[data-speaker-color="rose"] { --speaker-color: light-dark(#c9204f, #ff2864); }
+[data-speaker-color="cyan"] { --speaker-color: light-dark(#696969, #ffffff); }
+[data-speaker-color="violet"] { --speaker-color: light-dark(#9931db, #b848ff); }
+[data-speaker-color="crimson"] { --speaker-color: light-dark(#b3415a, #ff5c80); }
+[data-speaker-color="teal"] { --speaker-color: light-dark(#29755f, #58ffcf); }
+[data-speaker-color="green"] { --speaker-color: light-dark(#217918, #46ff33); }
+[data-speaker-color="indigo"] { --speaker-color: light-dark(#3a65c0, #4d87ff); }
+[data-speaker-color="bronze"] { --speaker-color: light-dark(#8d5f39, #ffab66); }
+[data-speaker-color="ember"] { --speaker-color: light-dark(#ce1e1e, #ff2424); }
+[data-speaker-color="slate"] { --speaker-color: light-dark(#9e4e7c, #ff7ec8); }
+[data-speaker-color="lavender"] { --speaker-color: light-dark(#7e58a6, #c186ff); }
+[data-speaker-color="gold"] { --speaker-color: light-dark(#736937, #ffec7a); }
+[data-speaker-color="sky"] { --speaker-color: light-dark(#776086, #e3b7ff); }
+[data-speaker-color="lime"] { --speaker-color: light-dark(#5e7025, #d6ff55); }
+[data-speaker-color="ochre"] { --speaker-color: light-dark(#99591c, #ff942e); }
+[data-speaker-color="mint"] { --speaker-color: light-dark(#3c7633, #82ff6f); }
+[data-speaker-color="plum"] { --speaker-color: light-dark(#bf2585, #ff32b1); }
+[data-speaker-color="sand"] { --speaker-color: light-dark(#7f644c, #ffc998); }
+[data-speaker-color="sea"] { --speaker-color: light-dark(#2c7376, #60f9ff); }
+[data-speaker-color="rust"] { --speaker-color: light-dark(#a64f43, #ff7866); }
+[data-speaker-color="moss"] { --speaker-color: light-dark(#5f6e48, #dcffa7); }
+[data-speaker-color="orchid"] { --speaker-color: light-dark(#b02bae, #ff3ffc); }
+[data-speaker-color="pink"] { --speaker-color: light-dark(#c32371, #ff2e94); }
+[data-speaker-color="jade"] { --speaker-color: light-dark(#26774a, #50ff9f); }
+[data-speaker-color="cobalt"] { --speaker-color: light-dark(#4733ff, #7a6cff); }
+[data-speaker-color="copper"] { --speaker-color: light-dark(#9e525c, #ff8695); }
+[data-speaker-color="pewter"] { --speaker-color: light-dark(#836064, #ffbac1); }
+
+.semantic-dialogue-setting {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+}
+
+.semantic-dialogue-setting .semantic-checkbox-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 1.15em;
+    height: 1.15em;
+    margin: 0;
+    border: 1px solid currentColor;
+    border-radius: 0;
+    color: transparent;
+}
+
+.semantic-dialogue-setting #semanticDialogueColorsCheckbox {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    width: 100%;
+    text-align: left;
+}
+
+.semantic-dialogue-setting .semantic-checkbox-state {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.semantic-dialogue-setting #semanticDialogueColorsCheckbox[data-enabled="true"] .semantic-checkbox-mark {
+    color: currentColor;
+}
+
+html[lang="en"] .speaker-dialogue,
+html[lang="en"] .speaker-name,
+html[lang="zh-CN"] .speaker-dialogue,
+html[lang="zh-CN"] .speaker-name {
+    color: var(--speaker-color, currentColor);
+}
+
+html[lang="en"] .speaker-name,
+html[lang="zh-CN"] .speaker-name {
+    font-weight: 600;
+}
+
+/* Optional book presentation. Every rule is gated by reading-mode-book so the
+   original mode retains the upstream layout and typography exactly. Story and
+   chapter markers are supplied from build-time reading metadata. */
+html[lang="en"].reading-mode-book .story-view,
+html[lang="zh-CN"].reading-mode-book .story-view {
+    box-sizing: border-box;
+    max-width: 52rem;
+    margin-inline: auto;
+}
+
+html[lang="en"].reading-mode-book .story-view .story-paragraph,
+html[lang="zh-CN"].reading-mode-book .story-view .story-paragraph {
+    display: block;
+    margin: 0 0 1em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-kerning: normal;
+    font-feature-settings: "kern" 1, "liga" 1;
+    line-height: 1.68;
+    hanging-punctuation: first last;
+    text-wrap: pretty;
+}
+
+html[lang="en"].reading-mode-book .story-view .story-paragraph ~ .story-paragraph {
+    text-indent: 1.5em;
+}
+
+html[lang="en"].reading-mode-book .story-view .story-paragraph-break,
+html[lang="zh-CN"].reading-mode-book .story-view .story-paragraph-break {
+    display: none;
+}
+
+html[lang="zh-CN"].reading-mode-book .story-view .story-paragraph {
+    font-family: "Songti SC", STSong, "Source Han Serif SC", "Noto Serif CJK SC", SimSun, serif;
+    line-height: 1.8;
+    line-break: strict;
+    overflow-wrap: break-word;
+    /* Left-aligned CJK: justification stretches short lines into wide
+       inter-character gaps whenever line-break rules push punctuation to the
+       next line, which looks broken on narrow screens. */
+    text-align: start;
+    text-wrap: wrap;
+    word-break: normal;
+}
+
+html[lang="zh-CN"].reading-mode-book .story-view .story-paragraph ~ .story-paragraph {
+    text-indent: 2em;
+}
+
+html[lang="en"].reading-mode-book.chapter-opening-active .header-title,
+html[lang="zh-CN"].reading-mode-book.chapter-opening-active .header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65em;
+    font-size: clamp(1.125rem, 3vw, 1.75rem);
+    letter-spacing: 0.035em;
+}
+
+html[lang="en"].reading-mode-book.chapter-opening-active .header-title {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.06em;
+}
+
+html[lang="zh-CN"].reading-mode-book.chapter-opening-active .header-title {
+    font-family: "Songti SC", STSong, "Source Han Serif SC", "Noto Serif CJK SC", SimSun, serif;
+}
+
+html[lang="en"].reading-mode-book.chapter-opening-active .header-title::before,
+html[lang="en"].reading-mode-book.chapter-opening-active .header-title::after,
+html[lang="zh-CN"].reading-mode-book.chapter-opening-active .header-title::before,
+html[lang="zh-CN"].reading-mode-book.chapter-opening-active .header-title::after {
+    content: "";
+    width: clamp(1.25rem, 5vw, 4rem);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.45;
+}
+
+html[lang="en"].reading-mode-book.chapter-opening-active .chapter-opening-text,
+html[lang="zh-CN"].reading-mode-book.chapter-opening-active .chapter-opening-text {
+    margin-top: clamp(0.75rem, 3vh, 2rem);
+}
+
+html[lang="en"].reading-mode-book.chapter-opening-active .chapter-opening-text.chapter-drop-cap::first-letter {
+    float: left;
+    margin: 0.08em 0.12em 0 0;
+    font-size: 3.25em;
+    font-weight: 600;
+    line-height: 0.78;
+}
+
+html[lang="zh-CN"].reading-mode-book.chapter-opening-active .chapter-opening-text {
+    text-indent: 0;
+}
+
+@media (max-width: 420px) {
+    html[lang="en"].reading-mode-book .story-view .story-paragraph {
+        line-height: 1.62;
+    }
+
+    html[lang="zh-CN"].reading-mode-book .story-view .story-paragraph {
+        line-height: 1.72;
+    }
+}

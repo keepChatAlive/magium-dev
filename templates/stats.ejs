@@ -1,0 +1,220 @@
+<div class="stats-container" <% if (maximized) { %> _="on load set global counter to 10 then repeat set global counter to counter-1 then wait 1.5s end" <% } %>>
+    <% if (locals.v_b3_ch11_magic || 0) { %>
+        <button class="stat-field magic-special" id="magical_power" onclick="void(0)" 
+        style="grid-column: 1; grid-row: 1;">
+            <%= statsMagicalPowerText %>:
+            <span id="magical_power_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_magical_power) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+                <%= (locals.v_b3_ch11_magic) || 0 %>
+            </span>
+        </button>
+
+        <button class="stat-field magic-special" id="magical_knowledge" onclick="void(0)" 
+        style="grid-column: 2; grid-row: 1;">
+            <%= statsMagicalKnowledgeText %>:
+            <span id="magical_knowledge_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_magical_knowledge) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+                <%= (locals.v_b3_ch11_magic) || 0 %>
+            </span>
+        </button>
+    <% } %>
+
+    <button class="stat-field available" id="available_points" onclick="void(0)" 
+    style="grid-column: 1 / span 2; grid-row: 2;">
+        <%= statsAvailablePointsText %>
+        <span id="available_points_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_available_points) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_available_points) || 0 %>
+        </span>
+    </button>
+
+    <button class="stat-field" id="strength" 
+    onclick="updateStat(this.id)" 
+    style="grid-column: 1; grid-row: 3;">
+        <%= statsStrengthText %>:
+        <span id="strength_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_strength) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_strength) || 0 %>
+        </span>
+        /
+        <span id="strength_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="toughness" 
+    onclick="updateStat(this.id)"
+    style="grid-column: 1; grid-row: 4;">
+        <%= statsToughnessText %>:
+        <span id="toughness_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_toughness) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_toughness) || 0 %>
+        </span>
+        /
+        <span id="toughness_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="agility"
+    onclick="updateStat(this.id)"
+    style="grid-column: 2; grid-row: 3;">
+        <%= statsSpeedText %>:
+        <span id="agility_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_agility) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_agility) || 0 %>
+        </span>
+        /
+        <span id="agility_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="reflexes"
+    onclick="updateStat(this.id)"
+    style="grid-column: 2; grid-row: 4;">
+        <%= statsReflexesText %>:
+        <span id="reflexes_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_reflexes) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_reflexes) || 0 %>
+        </span>
+        /
+        <span id="reflexes_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="hearing"
+    onclick="updateStat(this.id)"
+    style="grid-column: 1; grid-row: 5;">
+        <%= statsHearingText %>:
+        <span id="hearing_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_hearing) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_hearing) || 0 %>
+        </span>
+        /
+        <span id="hearing_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="perception" 
+    onclick="updateStat(this.id)"
+    style="grid-column: 2; grid-row: 5;">
+        <%= statsObservationText %>:
+        <span id="perception_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_perception) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_perception) || 0 %>
+        </span>
+        /
+        <span id="perception_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="ancient_languages"
+    onclick="updateStat(this.id)"
+    style="grid-column: 1 / span 2; grid-row: 6;">
+        <%= statsAncientLanguagesText %>:
+        <span id="ancient_languages_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_ancient_languages) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_ancient_languages) || 0 %>
+        </span>
+        /
+        <span id="ancient_languages_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="combat_technique"
+    onclick="updateStat(this.id)"
+    style="grid-column: 1 / span 2; grid-row: 7;">
+        <%= statsCombatTechniqueText %>:
+        <span id="combat_technique_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_combat_technique) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_combat_technique) || 0 %>
+        </span>
+        /
+        <span id="combat_technique_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+
+    <button class="stat-field" id="premonition" 
+    onclick="updateStat(this.id)"
+    style="grid-column: 1 / span 2; grid-row: 8;">
+        <%= statsPremonitionText %>:
+        <span id="premonition_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_premonition) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_premonition) || 0 %>
+        </span>
+        /
+        <span id="premonition_max"><%= (locals.v_max_stat) || 3 %></span>
+    </button>
+    <% function sceneAfter(id) {
+        const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
+        if (result=regex.exec(id)) {
+            return (result.groups["book"] === "3") && (parseInt(result.groups["chapter"]) >= 4)
+        }
+    } %>
+    <% if (sceneAfter(locals.v_current_scene)) { %>
+        <button class="stat-field" id="bluff"
+        onclick="updateStat(this.id)"
+        style="grid-column: 1 / span 2; grid-row: 9;">
+            <%= statsBluffText %>:
+            <span id="bluff_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_bluff) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+            <%= (locals.v_bluff) || 0 %>
+            </span>
+            /
+            <span id="bluff_max"><%= (locals.v_max_stat) || 3 %></span>
+        </button>
+
+        <button class="stat-field" id="magical_sense"
+        onclick="updateStat(this.id)"
+        style="grid-column: 1; grid-row: 10;">
+            <%= statsMagicalSenseText %>:
+            <span id="magical_sense_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_magical_sense) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+            <%= (locals.v_magical_sense) || 0 %>
+            </span>
+            /
+            <span id="magical_sense_max"><%= (locals.v_max_stat) || 3 %></span>
+        </button>
+
+        <button class="stat-field" id="aura_hardening"
+        onclick="updateStat(this.id)"
+        style="grid-column: 2; grid-row: 10;">
+            <%= statsAuraHardeningText %>:
+            <span id="aura_hardening_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_aura_hardening) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+            <%= (locals.v_aura_hardening) || 0 %>
+            </span>
+            /
+            <span id="aura_hardening_max"><%= (locals.v_max_stat) || 3 %></span>
+        </button>
+    <% } %>
+</div>
+<div id="stats-button-container">
+<button onclick="window.location.reload()" 
+    id="cancel-changes" data-icon="cancel"><%= statsCancelText %></button>
+<button onclick="confirmStats()" 
+    id="confirm-changes" data-icon="confirm"><%= statsConfirmText %></button>
+<button hx-post="/" hx-ext="submitcurrentstate" hx-target="#content" hx-swap="innerHTML" hx-push-url="/"
+    id="return-to-game" data-icon="play"><%= statsReturnToGameText %></button>
+</div>
+<% if (maximized && ((locals.v_ac_ch6_immersion || 0) === 0)) { %>
+    <script>storeVariable("v_ac_ch6_immersion",1)</script>
+    <div id="modalOob" hx-swap-oob="afterbegin:#main">
+        <div 
+        id="achievementModalImmersion"
+        class="achievement-modal"
+        _="on load show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
+           on click remove me end">
+           <div class="achievement-modal-columns">
+                <img class="trophy-image" src="/images/achievement_trophy.png" width="100" height="100" />
+                <span class="achievement-symbol" data-icon="award" aria-hidden="true"></span>
+                <div class="achievement-modal-content">
+                    <div class="achievement-modal-title">
+                        <%= mainAchievementUnlockedText %>
+                    </div>
+                    <div class="achievement-modal-caption">
+                      <%= locals.statsFullImmersionText || 'Full immersion' %>
+                    </div>
+                </div>
+          </div>
+    </div>
+</div>
+<% }; %>
+<% if ( !locals.stats_intro_seen ) { %>
+    <div id="firstTimeStatsModal" class="first-time-stats-modal" _="on closeModal remove me">
+        <%- statsIntroductionText %>
+        <div class='stat_fail'>
+           <%= ejs.render(mainStatFailedTemplate,{"variable": statsAncientLanguagesText, "value": 3}) %> 
+        </div>
+        <br/>
+        <div class='stat_success'>
+           <%= ejs.render(mainStatSuccessTemplate,{"variable": statsCombatTechniqueText, "value": 2}) %> 
+        </div>
+        <br/>
+        <div style="display:flex;align-items:center;flex-direction:column;">
+            <button class="first-time-stats-continue response" data-icon="confirm" _="on click js document.cookie='stats_intro_seen=1' end then trigger closeModal">
+                <%= statsIntroductionButton %>
+            </div>
+        </div>
+    </div>
+<% } %>
+<div style="display:none">
+    <h2 class="header-title" id="header" hx-swap-oob="true">
+        <%= statsHeaderText %>
+    </h2>
+</div>

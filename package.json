@@ -1,0 +1,14 @@
+{
+  "name": "magium-offline-android",
+  "version": "1.0.0",
+  "description": "Offline Android edition of the open-source Magium game",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build:offline": "node scripts/build-offline.cjs",
+    "build:android": "powershell -NoProfile -File android/build-debug.ps1 -Lint"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,12 @@
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="dynamicColorThemeOverlay">@style/ThemeOverlay.Material3.DynamicColors.DayNight</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#fdf6e3</item>
+        <item name="android:navigationBarColor">#fdf6e3</item>
+        <item name="android:windowBackground">#fdf6e3</item>
+        <item name="android:colorAccent">#2aa198</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+</resources>

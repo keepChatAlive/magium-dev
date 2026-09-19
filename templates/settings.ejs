@@ -1,0 +1,127 @@
+<script>
+    initializeFontSizeSlider()
+    initializeThemeText()
+    initializeReadingModeText()
+    initializeDialogueColorsText()
+    initializeSemanticDialogueColorsText()
+    initializeAnimationEffectsText()
+    initializeContextualTypographyText()
+    initializeUIStyleText()
+</script>
+<div class="main-menu">
+    <div class="response">
+        <button
+            data-icon="language"
+            hx-get="/language"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            <%= settingsLanguageText %>
+        </button>
+    </div>
+    <div class="response">
+        <select id="themeDropdown" onchange="handleThemeChange(this.value)">
+            <% const kebabToPascal = (string) => {
+                  return string.split("/")
+                    .map(kebab => kebab.split("-")
+                      .map(substr => substr.charAt(0)
+                        .toUpperCase() +
+                        substr.slice(1))
+                      .join(""))
+                    .join("/");
+                };
+            %>
+            <% for (const theme of ["original-light","original-dark","catppuccin-light","catppuccin-dark","material-you"]) { %>
+                <option value="<%= theme %>" <%= locals["theme"] === theme ? 'selected' : '' %>><%= locals[`settings${kebabToPascal(theme)}ThemeText`] %></option>
+            <% } %>
+        </select>
+    </div>
+    <div class="response reading-mode-setting">
+        <label for="uiStyleDropdown"><%= locals.settingsUIStyleText || 'Interface style' %></label>
+        <select id="uiStyleDropdown" onchange="handleUIStyleChange(this.value)">
+            <option value="classic"><%= locals.settingsUIStyleClassicText || 'Classic' %></option>
+            <option value="square"><%= locals.settingsUIStyleSquareText || 'Square' %></option>
+        </select>
+    </div>
+    <div class="response reading-mode-setting">
+        <label for="readingModeDropdown"><%= locals.settingsReadingModeText || 'Reading style' %></label>
+        <select id="readingModeDropdown" onchange="handleReadingModeChange(this.value)">
+            <option value="original"><%= locals.settingsReadingModeOriginalText || 'Original' %></option>
+            <option value="book"><%= locals.settingsReadingModeBookText || 'Book' %></option>
+        </select>
+    </div>
+    <div class="response reading-mode-setting">
+        <label for="animationEffectsDropdown"><%= locals.settingsAnimationEffectsText || 'Animation effects' %></label>
+        <select id="animationEffectsDropdown" onchange="setAnimationEffects(this.value)">
+            <option value="off"><%= locals.settingsDialogueColorsOffText || 'Off' %></option>
+            <option value="on"><%= locals.settingsDialogueColorsOnText || 'On' %></option>
+        </select>
+    </div>
+    <div class="response reading-mode-setting">
+        <label for="contextualTypographyDropdown"><%= locals.settingsContextualTypographyText || 'Contextual manuscript typography' %></label>
+        <select id="contextualTypographyDropdown" onchange="setContextualTypography(this.value)">
+            <option value="off"><%= locals.settingsDialogueColorsOffText || 'Off' %></option>
+            <option value="on"><%= locals.settingsDialogueColorsOnText || 'On' %></option>
+        </select>
+    </div>
+    <div class="response reading-mode-setting">
+        <label for="dialogueColorsDropdown"><%= locals.settingsDialogueColorsText || 'Character dialogue colors' %></label>
+        <select id="dialogueColorsDropdown" onchange="setDialogueColors(this.value)">
+            <option value="off"><%= locals.settingsDialogueColorsOffText || 'Off' %></option>
+            <option value="on"><%= locals.settingsDialogueColorsOnText || 'On' %></option>
+        </select>
+    </div>
+    <div class="response reading-mode-setting semantic-dialogue-setting">
+        <% const semanticDialogueLabel = locals.settingsSemanticDialogueColorsText || 'Include context-inferred dialogue colors'; %>
+        <button id="semanticDialogueColorsCheckbox" type="button" data-enabled="false" data-label="<%= semanticDialogueLabel %>" data-on-label="<%= locals.settingsDialogueColorsOnText || 'On' %>" data-off-label="<%= locals.settingsDialogueColorsOffText || 'Off' %>">
+            <span class="semantic-checkbox-mark" aria-hidden="true">✓</span>
+            <span><%= semanticDialogueLabel %></span>
+            <span class="semantic-checkbox-state"><%= locals.settingsDialogueColorsOffText || 'Off' %></span>
+        </button>
+    </div>
+    <div class="response">
+        <button
+            data-icon="cheat"
+            _="on click show #cheatModeModal with visibility"
+        >
+            <%= settingsCheatModeText %>
+        </button>
+    </div>
+    <div id="cheatModeModal" class="cheatmode-modal-content" _="on closeModal hide with visibility">
+        <div>
+            <%- settingsCheatModeModalText %>
+        </div>
+            <button class="cheatmode-modal-yes" data-icon="confirm" _="on click storeVariable('v_available_points',50) then trigger closeModal"><%= localeYes %></button>
+        <br>
+            <button class="cheatmode-modal-no" data-icon="cancel" _="on click trigger closeModal"><%= localeNo %></button>
+    </div>
+    <div class="font-size-input-container">
+        <div class="font-size-input">
+            <input 
+                type="range"
+                id="fontSize"
+                name="font-size"
+                class="font-size-slider js-loading"
+                min="0.75" max="1.25" step="any"
+                _="on input updateFontSize()"/>
+            <label class="font-size-label" for="fontSize"><%= locals.settingsFontSizeText || 'Font size' %></label>
+        </div>
+    </div>
+    <div class="response">
+        <button
+            data-icon="previous"
+            hx-get="/menu"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            <%= settingsBackToMenuText %>
+        </button>
+    </div>
+</div>
+<div style="display:none">
+    <h2 class="header-title" id="header" hx-swap-oob="true">
+        <%= settingsHeaderText %>
+    </h2>
+</div>

@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "bundling": "complete upstream font files; no subsetting",
+  "fonts": [
+    {
+      "file": "EBGaramond-Variable.ttf",
+      "source": "https://github.com/octaviopardo/EBGaramond12",
+      "license": "OFL-EB-Garamond.txt",
+      "sha256": "ef9512f92f6d579e5dc75af59a5a4b1b8b47d2eda89e00b954d44520e5369027"
+    },
+    {
+      "file": "EBGaramond-Italic-Variable.ttf",
+      "source": "https://github.com/octaviopardo/EBGaramond12",
+      "license": "OFL-EB-Garamond.txt",
+      "sha256": "bba2c4499c93c9612b90b9825d32b07da52fce2fe57562a1eb6b833553f93c4e"
+    },
+    {
+      "file": "Kalam-Light.ttf",
+      "source": "https://github.com/google/fonts/tree/main/ofl/kalam",
+      "license": "OFL-Kalam.txt",
+      "sha256": "2b8f2c0208d397a1823688783da3317d6af18ea007a9a1b56ddb17e27820507e"
+    },
+    {
+      "file": "LXGWWenKai-Light.ttf",
+      "source": "https://github.com/lxgw/LxgwWenKai",
+      "license": "OFL-LXGW-WenKai.txt",
+      "sha256": "526ec70cbb0118e871d481f8179e03ff045f0e4d72d080dcca87950c4ab27cca"
+    },
+    {
+      "file": "NotoSerifSC-Variable.ttf",
+      "source": "https://github.com/notofonts/noto-cjk",
+      "license": "OFL-Noto-Serif-SC.txt",
+      "sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9"
+    }
+  ]
+}

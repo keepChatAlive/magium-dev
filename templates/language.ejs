@@ -1,0 +1,27 @@
+<div class="main-menu">
+    <% for (entry of Object.entries(locales)) { %>
+        <div class="response">
+            <button
+                onClick="document.cookie='locale=<%= entry[0] %>';window.location.reload()"
+            > 
+                <%= entry[1] %>
+            </button>
+        </div>
+    <% } %>
+    <div class="response">
+        <button
+            data-icon="previous"
+            hx-get="/settings"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            <%= languageBackToSettingsText %>
+        </button>
+    </div>
+</div>
+<div style="display:none">
+    <h2 class="header-title" id="header" hx-swap-oob="true">
+        <%= languageHeaderText %>
+    </h2>
+</div>

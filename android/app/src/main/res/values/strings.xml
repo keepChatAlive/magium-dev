@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Magium Unofficial</string>
+    <string name="reader_restarted">The reader restarted. Your last autosave is safe.</string>
+    <string name="file_unavailable">Could not open the file picker.</string>
+    <string name="invalid_save">The save file is invalid or too large.</string>
+    <string name="save_failed">Could not read or write this save file.</string>
+    <string name="save_busy">Finish the current save operation first.</string>
+    <string name="webview_unavailable">Magium needs Android System WebView. Enable or update it in Android settings, then reopen Magium.</string>
+</resources>

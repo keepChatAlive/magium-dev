@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'org.magium.offline'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'org.magium.offline'
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures { buildConfig true }
+    // Package only the generated static reader, never the upstream sources/server.
+    sourceSets.main.assets.srcDirs = [layout.buildDirectory.dir('generated/offlineAssets')]
+}
+
+tasks.register('prepareOfflineAssets', Sync) {
+    from('../../offline') {
+        include 'index.html', 'offline-prelude.js', 'original-ui.js', 'engine.js', 'LICENSE.txt', 'data/**', 'scripts/**', 'styles/**', 'images/**', 'icons/**', 'fonts/**'
+    }
+    into(layout.buildDirectory.dir('generated/offlineAssets'))
+    doFirst {
+        for (String asset : ['index.html', 'original-ui.js', 'engine.js', 'data/en.js', 'data/fr.js', 'data/zh-CN.js', 'data/readingEnhancements.js', 'data/documentTypography.js', 'data/templates.js', 'scripts/reading-enhancements.js', 'scripts/presentation-enhancements.js', 'styles/presentation.css', 'fonts/FONTS.json']) {
+            if (!file('../../offline/' + asset).isFile()) {
+                throw new GradleException('Missing offline asset ' + asset + '. Run node scripts/build-offline.cjs from the repository root.')
+            }
+        }
+    }
+}
+tasks.named('preBuild').configure { dependsOn 'prepareOfflineAssets' }
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1'
+    implementation 'com.google.android.material:material:1.14.0'
+}

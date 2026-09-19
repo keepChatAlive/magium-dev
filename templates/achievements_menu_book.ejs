@@ -1,0 +1,24 @@
+<% Object.entries(achievements).forEach(function(entry) { 
+    const reg = /b([0-9])ch([0-9]+)/;
+    const result = reg.exec(entry[0]);
+    const book = result[1];
+    const chapter = result[2];
+%>
+    <div class="response">
+        <button
+            data-icon="chapter"
+            hx-post="/achievements/book/<%= book %>/chapter/<%= chapter %>"
+            hx-ext="submitcurrentstate"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            <%= ejs.render(achievementsMenuChapterTemplate,{"num":chapter}) %>
+        </button>
+    </div>
+    <% }); %>
+<div style="display:none">
+    <h2 class="header-title" id="header" hx-swap-oob="true">
+        <%= achievementsMenuHeaderText %>
+    </h2>
+</div>

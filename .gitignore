@@ -1,0 +1,29 @@
+node_modules/
+package-lock.json
+out/
+dist/
+release/
+.cache/
+tools/.npm-cache/
+
+# Generated offline bundle
+offline/data/
+offline/scripts/
+offline/styles/
+offline/images/
+offline/icons/
+offline/fonts/
+offline/index.html
+offline/LICENSE.txt
+
+# Android and Gradle outputs/local state
+.gradle/
+.gradle-user-home/
+.android-user-home/
+**/build/
+local.properties
+*.jks
+*.keystore
+
+# The small offline template compiler is the only locked Node dependency set.
+!tools/offline-build/package-lock.json

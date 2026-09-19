@@ -1,0 +1,5 @@
+<resources>
+    <!-- Wallpaper-derived colors also apply when launcher themed icons are off. -->
+    <color name="launcher_background">@android:color/system_accent1_100</color>
+    <color name="icon_foreground">@android:color/system_accent1_700</color>
+</resources>

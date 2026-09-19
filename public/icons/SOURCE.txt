@@ -1,0 +1,6 @@
+Material Symbols Sharp 24 px SVG subset
+Source: https://github.com/google/material-design-icons
+Revision: 40a7a292a79d9394157e1ea24f83d52d5e17c556
+License: Apache License 2.0 (see LICENSE-MATERIAL-SYMBOLS.txt)
+Icons: 
+menu, on_device_training, play_arrow, restart_alt, flag, save, folder_open, workspace_premium, settings, info, language, upload_file, download, content_copy, arrow_back, arrow_forward, lock, emoji_events, add, remove, check, close, menu_book, article, bolt

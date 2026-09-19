@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Magium Unofficial</string>
+    <string name="reader_restarted">阅读器已重新启动，上次自动存档仍然保留。</string>
+    <string name="file_unavailable">无法打开文件选择器。</string>
+    <string name="invalid_save">存档文件无效或过大。</string>
+    <string name="save_failed">无法读取或写入此存档文件。</string>
+    <string name="save_busy">请先完成当前的存档操作。</string>
+    <string name="webview_unavailable">Magium 需要 Android System WebView。请在安卓设置中启用或更新后重新打开 Magium。</string>
+</resources>

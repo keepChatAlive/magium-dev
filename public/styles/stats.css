@@ -1,0 +1,118 @@
+:root {
+    --stat-color: transparent;
+    --stat-text-color: var(--text-color);
+    --stat-border-color: transparent;
+    --stat-update-text-color: var(--green-color);
+    --stat-magic-special-text-color: var(--blue-color);
+    --stat-available-text-color: var(--red-color);
+}
+
+#stats-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+}
+
+#stats-button-container > button {
+    padding: 0.5em;
+    max-width: 15vw;
+    min-width: 75px;
+
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-color: var(--button-border-color);
+
+    cursor: pointer;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats-row {
+    display: flex;
+    justify-items: center;
+}
+
+.stat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-field {
+    padding: 1em 0.5em;
+    width: 160px;
+    min-width: 160px;
+    text-align: right;
+
+    background-color: var(--stat-color);
+    color: var(--stat-text-color);
+    border-color: var(--stat-border-color);
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    .stat-field {
+        padding: 1em 2.5em;
+        width: 30vw;
+        min-width: 145px;
+        text-align: center;
+    }
+}
+
+.magic-special {
+    color: var(--stat-magic-special-text-color);
+    cursor: default;
+}
+
+.available {
+    color: var(--stat-available-text-color);
+    cursor: default;
+}
+
+.updated {
+    color: var(--stat-update-text-color);
+}
+
+.first-time-stats-modal {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(70vw);
+    font-size: 0.8rem;
+    background-color: var(--background-color);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 1em;
+    border: solid 3px var(--button-color);
+}
+
+.first-time-stats-continue {
+    padding: 1em;
+    width: 100%;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-color: var(--button-border-color);
+}
+
+@media (min-width: 800px) {
+    .first-time-stats-modal {
+        width: 600px;
+        height: 450px;
+        font-size: 1rem;
+        top: 35%;
+    }
+    .first-time-stats-continue {
+        width: 30%
+    }
+}

@@ -1,0 +1,112 @@
+.achievement-box {
+    align-items: center;
+    margin: auto;
+    margin-bottom: 1em;
+    font-size: 0.8rem;
+    width: calc(90vw);
+    aspect-ratio: 629/229;
+    background-color: var(--achievement-background-color);
+    background-image: url('../images/achievement_side_contour.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 999px;
+    display: flex;
+}
+
+.achievement-title {
+    color: var(--achievement-title-color);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.achievement-caption {
+    color: var(--achievement-text-color);
+}
+
+.achievement-columns {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    width: 75%;
+    margin: auto;
+}
+
+.achievement-text {
+    margin-left: 1em;
+}
+
+.achievement-modal {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 70px;
+    background-color: #3f3f3f;
+    background-image: url('../images/achievement_box.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 12px;
+}
+
+.achievement-modal-columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: fit-content;
+    margin: auto;
+}
+
+.achievement-modal-title {
+    color: #D6D6EA;
+    font-size: max(0.75rem, 12px);
+    text-align: center;
+}
+
+.achievement-modal-caption {
+    color: #D6D6EA;
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+.achievement-modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.trophy-image {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+@media (min-width: 800px) {
+    .achievement-box {
+        width: 629px;
+        height: 229px;
+        font-size: 1rem;
+    }
+
+    .achievement-modal {
+        width: 600px;
+        height: 140px;
+    }
+
+    .achievement-modal-title {
+        font-size: max(1.5rem, 24px);
+    }
+
+    .achievement-modal-caption {
+        font-size: 1.2rem;
+    }
+
+    .trophy-image {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+    }
+}
